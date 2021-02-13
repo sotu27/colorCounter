@@ -1,5 +1,11 @@
 package org.springTest.test;
 
+import java.io.Serializable;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public interface toolIf {
 	
 	// メーカー
@@ -30,9 +36,13 @@ public interface toolIf {
 	public String getOperation();
 	void setOperation(String operation);	
 	// ユーザ名	
+	@NotEmpty(message = "名前を入力してください")
+	@Size(max = 50, message = "名前は50桁以内で入力してください")
 	public String getUser_name();
 	void setUser_name(String user_name);	
 	// ユーザパスワード
+	@NotEmpty(message = "passを入力してください")
+	@Size(max = 50, message = "passは50桁以内で入力してください")
 	public String getUser_password();
 	void setUser_passsword(String user_password);	
 	// システム追加日

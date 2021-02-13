@@ -26,11 +26,17 @@ import org.springTest.Dao.Impl.toolsDaoImpl;
 import org.springTest.Entity.*;
 
 import org.springTest.Method.*;
+//import org.springTest.Method.loginMesage;;
 import org.springTest.Service.InfomationService;
 import org.springTest.Service.Impl.InfomationServiceImpl;
 import org.springTest.Service.Impl.toolCalculation;
 import org.springTest.Service.Impl.toolsServiceImpl;
 
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -43,6 +49,10 @@ public class controller {
 	private toolIf tool;
 	@Autowired
 	toolsServiceImpl toolsServiceImpl;
+	// add start 2021/1/21 
+	@Autowired
+	loginMessage lm;
+	// add end 2021/1/21 
 	
 	
 	// form値とmodelのバインドを行う。
@@ -147,10 +157,20 @@ public class controller {
 	
 	// ユーザの新規登録、サインイン
 	@RequestMapping(value = "/regist_signin", method = POST)
-	public String regist_signin_handler(@ModelAttribute("toolFormData") toolIf formBean ,Model model  ) {
+	public String regist_signin_handler(@Validated @ModelAttribute("toolFormData") toolIf formBean , BindingResult result,Model model  ) {
 		// form値を取得
 		String user_name = formBean.getUser_name();
 		String user_password = formBean.getUser_password();
+		String signin_message = "";
+		
+		if (result.hasErrors()) {
+			List<String> errorList = new ArrayList<String>();
+			for(ObjectError error : result.getAllErrors()) {
+			errorList.add(error.getDefaultMessage());
+			}
+			model.addAttribute("validationError", errorList);
+			return "signin";
+			}
 		
 		boolean checkM000 = toolsServiceImpl.checkM000_userName_service(user_name);
 	    if (checkM000) {
@@ -159,6 +179,8 @@ public class controller {
 			return "tools";
 		} else {
 			System.out.println("入力されたユーザ名は既に使用されています・・・");
+			signin_message = "入力された内容は既に使用されています。他の内容を入力してください。";
+			model.addAttribute("signinMessage",signin_message);
 			return	"signin";
 		}
 	}
@@ -173,17 +195,34 @@ public class controller {
 	
 	// ログイン画面入力値の入力判定
 	@RequestMapping(value = "/loginCheck", method = POST)
-	public String loginCheck_handler(@ModelAttribute("toolFormData") toolIf formBean ,Model model ) {
+	public String loginCheck_handler(@Validated @ModelAttribute("toolFormData") toolIf formBean ,BindingResult result,Model model ) {
 		// form値を取得
 		String user_name = formBean.getUser_name();
 		String user_password = formBean.getUser_password();
 		
+		if (result.hasErrors()) {
+			List<String> errorList = new ArrayList<String>();
+			for(ObjectError error : result.getAllErrors()) {
+			errorList.add(error.getDefaultMessage());
+			}
+			model.addAttribute("validationError", errorList);
+			return "login";
+			}
+		
 		boolean checkM000 = toolsServiceImpl.checkM000_service(user_name, user_password);
+		String loginMessage = "";
+
 	    if (checkM000) {
+			// add start 2021/1/21 loginMessageを追加
+			loginMessage = lm.loginMessage(user_name);	
+			model.addAttribute("loginMessage",loginMessage);
+			// add end 2021/1/21 loginMessageを追加
 			return "tools";
 		} else {
 			System.out.println("ログインに失敗しました・・・");
-			return	"topPage";
+			loginMessage = "ログインに失敗しました。　入力内容を見直してください。";
+			model.addAttribute("loginMessage",loginMessage);
+			return	"login";
 		}
 	}
 	
@@ -196,6 +235,7 @@ public class controller {
 		
 		List<tools> tools = toolsServiceImpl.getItemQty_Service(userName);
 		model.addAttribute("res",tools);
+		
 		return "tools";
 	}	
 	
@@ -216,6 +256,7 @@ public class controller {
 			toolsServiceImpl.itemCal_Service (maker,itemNumber,qty,operation, userName);
 			List<tools> tools = toolsServiceImpl.getItemQty_Service(userName);
 			model.addAttribute("res",tools);
+			
 		    return "tools";
 		}
 	}
@@ -231,6 +272,12 @@ public class controller {
 		return "login";
 	}
 	
+	// 問い合わせメニューへ遷移
+	@RequestMapping(value = "/qa_menu", method = RequestMethod.POST)
+	public String qa_menu_handler(@ModelAttribute("toolFormData") toolIf formBean , Model model) {
+		
+		return "qa";
+	}
 	
 	
 	

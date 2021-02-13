@@ -16,7 +16,19 @@ async function getTC001List(){
 		         {data:"itemNumber"},
 		         { data: "colorName"},
 		         { data: "itemQty"}
-		       ]
+		       ],
+		       // 件数切替機能
+		        lengthChange: true,
+		        // 検索機能 
+		        searching: true,
+		        // ソート機能 
+		        ordering: true,
+		        // 情報表示 
+		        info: false,
+		        // ページング機能 
+		        paging:false,
+		        scrollX: false,
+		        scrollY:"300"
 		    };
 	console.log(dtSetting);
 	$('#foo-table').DataTable(dtSetting);

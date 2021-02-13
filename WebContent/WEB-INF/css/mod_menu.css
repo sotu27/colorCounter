@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/* 数量変更メニューのCSS設定 */
+	.mod_menu{
+		margin-left: auto;
+		margin-right: auto;	
+		text-align: center;					
+			}
+	.mod_menu_maker{
+		width: 250px;
+		}				
+	.mod_menu_itemNumber{
+		width: 350px;
+		}
+	.mod_menu_qty{
+		width: 100px;
+		}
+	.mod_menu_itemCal{
+		width: 100px;
+		}
+		
+	.mod_menu_op{
+		width: 150px;
+		}
+	.table-stripe{
+		margin-left: auto;
+		margin-right: auto;	
+		text-align: center;	
+		width: 1150px;				
+			}

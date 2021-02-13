@@ -107,6 +107,11 @@ public class toolsServiceImpl {
 		sys_add_dd = timeForInsert.timeFotInsert();
 		toolsDaoImpl.registM000(user_name, user_password, sys_add_dd);
 	}
+	
+	// M000から全件取得
+	public List<tools> getM000() {
+		return toolsDaoImpl.getM000();
+	}
 
 	
 }

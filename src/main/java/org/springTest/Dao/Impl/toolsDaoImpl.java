@@ -37,10 +37,10 @@ public class toolsDaoImpl {
 	
 	// TC001から数量を取得
 	public List<tools> getItemQty(String userName){
-		String sql = "select mc001.itemNumber, mc001.colorName, tc001.itemQty "
-				+ "from tc001 "
-				+ "inner join mc001 on mc001.itemNumber = tc001.itemNumber and mc001.maker = tc001.maker "
-				+ "WHERE tc001.user_name = '" + userName + "';";
+		String sql = "select MC001.itemNumber, MC001.colorName, TC001.itemQty "
+				+ "from TC001 "
+				+ "inner join MC001 on MC001.itemNumber = TC001.itemNumber and MC001.maker = TC001.maker "
+				+ "WHERE TC001.user_name = '" + userName + "';";
 		RowMapper<tools> rowMapper = new BeanPropertyRowMapper<tools>(tools.class);
 		List<tools> toolsList = jdbcTemplate.query(sql, rowMapper);
 		 jdbcTemplate.query(sql, rowMapper);
@@ -226,6 +226,15 @@ public class toolsDaoImpl {
 				            "');"
 				          ;
 		 jdbcTemplate.update(sql);
+	}
+	
+	// M000(ユーザマスタ)を取得する
+	public List<tools> getM000(){
+		String sql = "select * FROM M000;";
+		RowMapper<tools> rowMapper = new BeanPropertyRowMapper<tools>(tools.class);
+		List<tools> toolsList = jdbcTemplate.query(sql, rowMapper);
+		 jdbcTemplate.query(sql, rowMapper); 
+		return toolsList;
 	}
 
 	

@@ -3,33 +3,48 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	
 <!DOCTYPE html>
+<html>
 
 <head>
     <meta charset="UTF-8">
 	<title>LOGIN</title>
+	
+	
 </head>
 <body>
 
-<td>ログイン画面でーす</td>
-<table border="1">
-<form method="post" action="loginCheck">
 
- <tr><th>ユーザネーム</th><td><input type="text" name="user_name"  /></td></tr>
- <tr><th>ユーザパス</th> <td><input type="text" name="user_password" id="name" /></td> </tr>    
-<tr><td><input type="submit" value="ログイン"/></td></tr>
+<header>ログイン画面でーす</header>
 
-</form>
-</table>
+<div>
+	<form method="post" action="loginCheck">
+		<table border="1">
+				<tr><th>name</th><td><input type="text" name="user_name"  /></td></tr>
+			 	<tr><th>pass</th> <td><input type="text" name="user_password" id="name" /></td></tr>    
+				<tr><td><input type="submit" value="ログイン"/></td></tr>
+		</table>
+	</form>
+</div>
 
-<form method="get" action="signin">
-<tr><td><input type="submit" value="新規登録はこちら"/></td></tr>
+<div>
+	<form method="get" action="signin">
+		<input type="submit" value="新規登録はこちら"/>
+	</form>
+</div>
+
+<div>
+	<c:out value="${loginMessage}"/>
+	<c:out value="${validationError}"/>
+</div>
+
+
+
 
 <br></br>
 
 <form method="get" action="top">
-<tr><td><input type="submit" value="戻る"/></td></tr>
+	<input type="submit" value="戻る"/>
 </form>
-<br></br>
 
 
 

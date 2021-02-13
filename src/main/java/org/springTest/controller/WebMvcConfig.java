@@ -25,6 +25,13 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
 	.addResourceLocations("classpath:/webapp/resources/static/")
 	.addResourceLocations("src/main/resources/static/")
 	.addResourceLocations("WebContent/static/js/");
+	
+	registry.addResourceHandler("/css/**")
+	.addResourceLocations("classpath:/static/css/")
+	.addResourceLocations("classpath:/resources/static/css")
+	.addResourceLocations("classpath:/webapp/resources/static/")
+	.addResourceLocations("src/main/resources/static/")
+	.addResourceLocations("WebContent/static/css/");
 }
 
 
