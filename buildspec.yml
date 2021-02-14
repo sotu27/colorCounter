@@ -31,7 +31,7 @@
         - mvn -version >>version.txt
         - echo "--------------------------------------------------" >> version.txt
         ## version.txtの移動
-        - cp -p version.txt ./WebRoot/WEB-INF
+        #- cp -p version.txt ./WebRoot/WEB-INF
  
     post_build:
       commands:
