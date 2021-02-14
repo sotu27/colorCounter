@@ -3,7 +3,7 @@
   env:
     variables:
       # 環境変数の定義
-      S3_BUILD_OUTPUT_BUCKET: "codebuild-output/artifact/"
+      S3_BUILD_OUTPUT_BUCKET: "colorcounter/artifact/"
  
   phases:
     install:
