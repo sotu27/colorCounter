@@ -1,0 +1,45 @@
+  version: 0.2
+ 
+  env:
+    variables:
+      # 環境変数の定義
+      S3_BUILD_OUTPUT_BUCKET: "codebuild-output/artifact/"
+ 
+  phases:
+    install:
+      runtime-versions:
+        java: corretto8
+      commands:
+        # treeコマンドを使いたいのでインストール
+        - yum install -y tree
+ 
+    pre_build:
+      commands:
+        - echo Nothing to do in the pre_build phase...
+        - mvn clean -f ./pom.xml
+    build:
+      commands:
+        - echo Build started on `date`
+        # maven実行
+        - mvn resources:resources -e -B
+        - mvn compiler:compile -e -B
+ 
+        # ソース,java,mavenのバージョンを出力
+        - echo "--------------------------------------------------" >> version.txt
+        - echo "SourceVersion:"$CODEBUILD_RESOLVED_SOURCE_VERSION >> version.txt
+        - java -version 2>> version.txt
+        - mvn -version >>version.txt
+        - echo "--------------------------------------------------" >> version.txt
+        ## version.txtの移動
+        - cp -p version.txt ./WebRoot/WEB-INF
+ 
+    post_build:
+      commands:
+        - echo Build completed on `date`
+ 
+        - mvn compile war:war
+        # treeコマンドで確認
+        - tree >>tree.txt
+        - aws s3 cp tree.txt s3://$S3_BUILD_OUTPUT_BUCKET
+        # S3にwarファイルをアップロード
+        - aws s3 cp ./target/testProject.war s3://$S3_BUILD_OUTPUT_BUCKET
