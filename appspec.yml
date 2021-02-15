@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /testProject.war
-    destination: /var/www/java/
+    destination: /opt/apache-tomcat-9.0.41/webapps/
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
