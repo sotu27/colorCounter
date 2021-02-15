@@ -41,5 +41,7 @@
         # treeコマンドで確認
         - tree >>tree.txt
         - aws s3 cp tree.txt s3://$S3_BUILD_OUTPUT_BUCKET
+        # zip化
+        - zip testProject testProject.war appspec.yml 
         # S3にwarファイルをアップロード
         - aws s3 cp ./target/testProject.war s3://$S3_BUILD_OUTPUT_BUCKET
