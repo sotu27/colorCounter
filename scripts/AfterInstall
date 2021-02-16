@@ -1,4 +1,6 @@
 #!/bin/bash
 cd /opt/apache-tomcat-9.0.41/webapps/
 unzip -y testProject.zip
-cp ./target/testProject.war ./
+cp ./target/testProject.war ./     
+
+
