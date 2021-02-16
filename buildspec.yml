@@ -48,6 +48,6 @@
         
   artifacts:
     files:
-        - testProject.war
+        - '**/*'
         
         
