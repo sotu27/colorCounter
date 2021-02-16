@@ -19,7 +19,7 @@
 <div>
 	<form method="post" action="loginCheck">
 		<table border="1">
-				<tr><th>namexxx</th><td><input type="text" name="user_name"  /></td></tr>
+				<tr><th>nameppp</th><td><input type="text" name="user_name"  /></td></tr>
 			 	<tr><th>pass</th> <td><input type="text" name="user_password" id="name" /></td></tr>    
 				<tr><td><input type="submit" value="ログイン"/></td></tr>
 		</table>
