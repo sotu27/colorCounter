@@ -3,7 +3,7 @@
   env:
     variables:
       # 環境変数の定義
-      S3_BUILD_OUTPUT_BUCKET: "colorcounter/artifact/"
+      S3_BUILD_OUTPUT_BUCKET: "colorcounter/pipetest0216/SourceArti/"
  
   phases:
     install:
@@ -45,3 +45,7 @@
         - zip testProject testProject.war appspec.yml 
         # S3にwarファイルをアップロード
         - aws s3 cp ./target/testProject.war s3://$S3_BUILD_OUTPUT_BUCKET
+        
+    artifacts:
+      files:
+        -  colorcounter/pipetest0216/SourceArti/*/testProject.war
