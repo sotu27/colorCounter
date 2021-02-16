@@ -4,6 +4,10 @@ files:
   - source: /testProject.zip
     destination: /opt/apache-tomcat-9.0.41/webapps/
 hooks:
+  AfterInstall:
+    - location: scripts/AfterInstall
+      timeout: 300
+      runas: root
   BeforeInstall:
     - location: scripts/install_dependencies
       timeout: 300
