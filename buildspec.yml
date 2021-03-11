@@ -44,7 +44,7 @@
         # zip化
         - zip testProject ./target/testProject.war appspec.yml 
         # S3にwarファイルをアップロード
-        - aws s3 cp ./target/testProject.zip s3://$S3_BUILD_OUTPUT_BUCKET
+        - aws s3 cp ./testProject.zip s3://$S3_BUILD_OUTPUT_BUCKET
         
   artifacts:
     files:
