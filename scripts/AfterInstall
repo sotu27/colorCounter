@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /opt/apache-tomcat-9.0.41/webapps/
-unzip -y testProject.zip -d target
+unzip -q testProject.zip -d ./target
 cp ./target/testProject.war ./     
 
 
