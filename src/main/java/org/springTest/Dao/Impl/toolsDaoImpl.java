@@ -236,6 +236,20 @@ public class toolsDaoImpl {
 		 jdbcTemplate.query(sql, rowMapper); 
 		return toolsList;
 	}
+	
+	// T000(お問い合わせメッセージ)を登録する
+	public void registT000(String user_name, String rqst_message,String sys_add_dd){
+		String sql = "INSERT T000 (user_name, rqst_message,sys_add_dd) VALUES" +
+	               " ('" + 
+	               user_name + 
+		           "', '" + 
+		           rqst_message+ 
+		           "', '" +
+		          sys_add_dd +
+		            "');"
+		          ;
+		jdbcTemplate.update(sql);
+	}
 
 	
 }

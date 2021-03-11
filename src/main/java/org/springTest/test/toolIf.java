@@ -41,13 +41,17 @@ public interface toolIf {
 	public String getUser_name();
 	void setUser_name(String user_name);	
 	// ユーザパスワード
-	@NotEmpty(message = "passを入力してください")
-	@Size(max = 50, message = "passは50桁以内で入力してください")
+	@NotEmpty(message = "パスワードを入力してください")
+	@Size(max = 50, message = "パスワードは50桁以内で入力してください")
 	public String getUser_password();
 	void setUser_passsword(String user_password);	
 	// システム追加日
 	public String getSys_add_dd();
 	void setSys_add_dd(String sys_add_dd);	
+	// お問い合わせメッセージ
+//	@Size(max = 10, message = "お問い合わせ内容は250文字以内で入力してください")
+	public String getRqst_message();
+	void setRqst_message(String rqst_message);
 	
 
 }

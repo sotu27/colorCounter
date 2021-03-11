@@ -5,11 +5,13 @@
 	max-width: 1200px;
 	padding:0 40px;
 	margin:0 auto;
+	
 }
 
 .header_a {
 	color:#fff;
-	background: gray;
+	background: none;
+	box-shadow: 0px -3px 5px 1px #eee inset;
 }
 
 .header_a > .container {
@@ -50,13 +52,13 @@
 }
 
 .list_nav_header li {
-	color: white;
+	color: black;
 	display: flex;
 	align-items: center;
 }
 
 .list_nav_header li a {
-	color: white;
+	color: black;
 	display: flex;
 	align-items: center;
 }

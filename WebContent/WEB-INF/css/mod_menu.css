@@ -2,9 +2,9 @@
 
 /* 数量変更メニューのCSS設定 */
 	.mod_menu{
-		margin-left: auto;
-		margin-right: auto;	
-		text-align: center;					
+/* 		margin-left: auto; */
+/* 		margin-right: auto;	 */
+/* 		text-align: center;					 */
 			}
 	.mod_menu_maker{
 		width: 250px;

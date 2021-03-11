@@ -11,10 +11,23 @@
 /*           box-shadow: 0 1px 2px rgba(0,0,0,0.2); */
 /*   background-color: white; */
    text-align: center;
+        position: relative;
+     z-index: 900;
 }
+
 
 .js_open_modal {
 	   text-align: center;
+}
+.btn-area {
+  display:inline-block;
+  margin:auto;
+  text-align:center;
+}
+.modal-panel > js-close-modal {
+  display:inline-block;
+  text-align:center;
+  width:100%;
 }
 .modal-panel-back {
   position: fixed;
@@ -36,4 +49,14 @@
   margin: 100px auto;
     color: black;
      text-align: center;
+}
+
+.modal-panel > p {
+	text-align: left;
+	display: inline-block;
+}
+
+.modal-panel > p > p {
+	text-align: right;
+	display: inline-block;
 }

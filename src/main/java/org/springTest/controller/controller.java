@@ -87,8 +87,21 @@ public class controller {
 	
 	// メンテナンスメニュー画面へ
 	@RequestMapping(value = "/maintenance_menu", method = POST)
-	public String toolMaintenance_menu_handler(Model model ) {
-		return "tool_maintenance";
+	public String toolMaintenance_menu_handler(@ModelAttribute("toolFormData") toolIf formBean ,Model model ) {
+		String user_name = formBean.getUser_name();
+		String password = formBean.getUser_password();
+		
+		String master_user_name = "MasterSotu27XXX";
+		String master_password = "passsotu27";
+		String loginMessage = "";
+		
+		if (user_name.equals(master_user_name) && password.equals(master_password)) {
+			return "tool_maintenance";
+		} else {
+			loginMessage = lm.loginMessage(user_name);	
+			model.addAttribute("loginMessage",loginMessage);
+			return "tools";
+		}
 	}
 	
 	
@@ -250,18 +263,64 @@ public class controller {
 		String operation = formBean.getOperation();
 		String userName = formBean.getUser_name();
 		
+		String loginMessage = "";
+		
+		if(maker.isEmpty()) {
+			String checkMessage = "計算したい”塗料”を選択してください。";
+			loginMessage = lm.loginMessage(userName);
+			model.addAttribute("checkMessage",checkMessage);
+			model.addAttribute("loginMessage",loginMessage);
+			
+			return "tools";
+		}
+		
 		if (userName == null) {
 			return "topPage";
 		} else {
 			toolsServiceImpl.itemCal_Service (maker,itemNumber,qty,operation, userName);
 			List<tools> tools = toolsServiceImpl.getItemQty_Service(userName);
 			model.addAttribute("res",tools);
+			loginMessage = lm.loginMessage(userName);	
+			model.addAttribute("loginMessage",loginMessage);
 			
 		    return "tools";
 		}
 	}
 	
 	
+//	// 塗料数量表示画面　塗料数量計算ボタン押下
+//	@RequestMapping(value = "/itemCal", method = RequestMethod.POST)
+//	public String itemCal_handler(@ModelAttribute("toolFormData") toolIf formBean , Model model) {
+//		// form値を取得
+//		String maker = formBean.getMaker();
+//		String itemNumber = formBean.getItemNumber();
+//		int qty = formBean.getQty();
+//		String operation = formBean.getOperation();
+//		String userName = formBean.getUser_name();
+//		
+//		String loginMessage = "";
+//		
+//		if(maker.isEmpty()) {
+//			String checkMessage = "計算したい”塗料”を選択してください。";
+//			model.addAttribute("checkMessage",checkMessage);
+//			
+//			return "tools";
+//		}
+//		
+//		if (userName == null) {
+//			return "topPage";
+//		} else {
+//			toolsServiceImpl.itemCal_Service (maker,itemNumber,qty,operation, userName);
+//			List<tools> tools = toolsServiceImpl.getItemQty_Service(userName);
+//			model.addAttribute("res",tools);
+//			loginMessage = lm.loginMessage(userName);	
+//			model.addAttribute("loginMessage",loginMessage);
+//			
+//		    return "tools";
+//		}
+//	}
+
+
 	// ログアウト
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public String logOut_handler(@ModelAttribute("toolFormData") toolIf formBean , Model model) {
@@ -275,9 +334,26 @@ public class controller {
 	// 問い合わせメニューへ遷移
 	@RequestMapping(value = "/qa_menu", method = RequestMethod.POST)
 	public String qa_menu_handler(@ModelAttribute("toolFormData") toolIf formBean , Model model) {
+		// 変数宣言
+		String user_name = formBean.getUser_name();
+		String rqst_message = formBean.getRqst_message();
 		
-		return "qa";
-	}
+		if (rqst_message.getBytes().length > 250) {
+			return "tools";
+		} else {
+			toolsServiceImpl.registT000_Service(user_name, rqst_message);
+		}
+
+		
+		
+		if(user_name == null) {
+			return "login";
+		} else {
+			return "tools";
+		}
+			
+		}		
+	
 	
 	
 	

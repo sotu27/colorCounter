@@ -12,6 +12,7 @@
 	<script>jQuery(function($){});</script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
     
 
 </head>
@@ -20,12 +21,20 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css"/>"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/mod_menu.css"/>"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/header.css"/>"/>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/table1.css"/>"/>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/bottun.css"/>"/>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/footer.css"/>"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+<link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">	
 	
 	<style>
 	.mode{margin-right:200;
 		  margin-left:200}
-	.tc001page{margin-right:400;
-		       margin-left:400}
+	.tc001page{margin-right:200;
+		       margin-left:200;
+		       position: relative;
+     			z-index: 0;}
 	a{
 	color:black;
 	text-decoration:none}
@@ -52,22 +61,32 @@
   color: white;
 }
 
+.loginMessage {
+	color: black;
+	max-width: 1200px;
+	padding:0 40px;
+	margin:0 auto;
+	  font-family: 'Noto Sans JP', sans-serif;  
+}
 
+.errorMessage {
+	color: red;
+	max-width: 1200px;
+	padding:0 40px;
+	margin:0 auto;
+	  font-family: 'Noto Sans JP', sans-serif;  
+}
 
 	</style>
 </head>
-
-
-
-
 
 <body>
 
 <header class="header_a">
 	<div class="container">
 		<div class="area_logo_header">
-			<a class="logo" href="">
-				<img src="<c:url value="/img/tatsuro_img.jpg"/>">
+			<a class="logo" href="#">
+				<img src="<c:url value="/img/colorcounter_logo.png"/>">
 			</a>
 		</div>
 			<nav class="area_nav_header">
@@ -78,29 +97,65 @@
         				<a class="js-open-modal" href="#">ABOUT</a>
         					<div class="modal-panel-back disable">
            						<div class="modal-panel">
-	               				 	<div class="modal-panel-ttl">ABOUTの内容です。
-	               				 	</div>
-	               						こんちは！！！
-	                 					year!!
+	               				 	<div class="modal-panel-ttl">ABOUT colorcounter</div>
+	               				 	<br>
+	               				 	<p>
+	               						colorcounterではあなたの手持ちの塗料のストックを記録することができるサイトです。<br><br>
+	               						
+	               						模型店に立ち寄った際に、こんな経験をしたことはありませんか？<br>
+	               						「あれ、、、この塗料って家にまだ残っていたかな？？」<br>
+	               						「つや消しクリアーと光沢クリアーの手持ちの数って・・・何個だったっけ((+_+)))」<br>
+	               						「ニュートラルグレーのⅡが足りないと思っていたけど、実際に家にないのはⅢだった」<br>
+	               						などなど・・・<br><br>
+	               						
+	               						そんな時！！colorcounterで記録をしておくと便利ですよ！！<br><br>
+	               						
+	               						現在はラッカー塗料のみしか対応していませんが、<br>
+	               						水性やアクリル塗料も含め対応いていきたいと思っています。<br>
+	               						（管理人はラッカー塗料のヘビーユーザなのです・・・）<br><br>
+	               						
+	               						当サイトが皆さんの模活に少しでもお役に立つことができれば幸いです！<br><br>
+	               						
+	               						それでは、本日も楽しい模活を！！！<br><br>
+	               						
+	               						<br>
+	                 				</p>
+	                 				<p>管理人より</p><br><br>
+	                 					
 	                    			<div class="btn-area">
-	                        			<a class="c-btn js-close-modal" href="#">設定</a>
+	                        			<a class="js-close-modal" href="#">閉じる</a>
 	                   				</div>
 	                			</div>
            			 		</div>
         				</div>
 					</li>
-					
-			<!-- お知らせ内容を表示 -->
-					<li><form method="post" action="notice">
-						<input type="submit" class="clear-decoration" value="お知らせ"/>
-						</form>
-					</li>
 
 			<!-- 問い合わせ画面へ遷移 -->
-					<li>
-						<form method="post" action="qa_menu">
- 							<input type="submit" class="clear-decoration" value="お問い合わせ画面へ"/>
-						</form>
+					<li><div class="panel_header">
+        				<a class="js-open-modal" href="#">お問い合わせへ</a>
+        					<div class="modal-panel-back disable">
+           						<div class="modal-panel">
+	               				 	<div class="modal-panel-ttl">お問い合わせについて</div>
+	               				 	<br>
+	               				 	<p>
+	               						ご意見やご感想、ご要望事項がありましたら<br>
+	               						こちらの入力フォームから送信をお願いします(^^)<br><br>
+	               						
+	               						サイト作成のご参考にさせていただきたいと思っております！<br><br>
+	                 				</p>
+	                 				
+	                 				<form method="post" action="qa_menu">
+	                 				<textarea name="rqst_message" rows="10" cols="60">120文字以内で入力ください。</textarea><br>
+<!-- 	                 				<input class="request_input_form" type="text" name="request"  /><br> -->
+ 										<input class="reset button-arrow-inner" type="submit" value="送信する！" />
+									</form>
+									<br><br>
+	                    			<div class="btn-area">
+	                        			<a class="js-close-modal" href="#">閉じる</a>
+	                   				</div>
+	                			</div>
+           			 		</div>
+        				</div>
 					</li>
 	
 			<!-- メンテナンスメニューへ遷移 -->
@@ -115,7 +170,7 @@
 						<form method="post" action="logout">
 							<input type="submit" class="clear-decoration" value="ログアウト"/>
 							<br>
-							<c:out value="${loginMessage}"/>
+<%-- 							<c:out value="${loginMessage}"/> --%>
 						</form>
 					</li>
 				</ul>					
@@ -125,60 +180,63 @@
 
 
 
+	<div class="loginMessage">
+		<ul class="area_nav_header2">
+			<!-- ログインメッセージを表示 -->
+			<c:out value="${loginMessage}"/>
+			<br>
+			<c:out value="${validationError}"/>
+		</ul>
+	</div>
 
-
-<ul class="area_nav_header2">
-	<!-- ログインメッセージを表示 -->
-	<li><c:out value="${loginMessage}"/></li>
-</ul>
-
-
-
+	<div class="mode">
+		<!-- 数量変更メニューのヘッダ部 -->
+		<table class="mod_menu" border="1">
+			<tr>
+		 		<th class="mod_menu_maker">メーカー</th>
+		 		<th class="mod_menu_itemNumber">塗料</th>
+				<th class="mod_menu_qty">数量</th>
+		 		<th class="mod_menu_itemCal">計算方法</th>
+		 		<th class="mod_menu_op">登録！</th>
+		 	</tr>
+		
+			<!-- 数量変更メニューのプルダウン内容 -->
+			<form method="post" action="itemCal">
+				<tr>
+					<td><select name="maker" id="getMaker" onchange="addOption_itemNumber()"></select></td>　　
+					<td><select name="itemNumber"id="lists"></select></td>
+					<td><select name="qty">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						</select></td>
+					<td><select name="operation" >
+						<option value="plus">＋</option>
+						<option value="minus">－</option>
+						</select></td>
+			         <td><input class="reset button-arrow-inner" type="submit" value="登録"></td>
+				</tr>
+			</form>
+		</table>
+	</div>
+	
+		<div class="errorMessage">
+		<ul class="area_nav_header2">
+			<!-- ログインメッセージを表示 -->
+			<c:out value="${checkMessage}"/>
+		</ul>
+	</div>
 
 <br></br>
-<br></br>
 
-<div class="mode">
-<!-- 数量変更メニューのヘッダ部 -->
-<table class="mod_menu" border="1">
-	<tr><th colspan="5">数量変更メニュー</th></tr>
-	<tr>
- 		<th class="mod_menu_maker">メーカー</th>
- 		<th class="mod_menu_itemNumber">品番</th>
-		<th class="mod_menu_qty">数量</th>
- 		<th class="mod_menu_itemCal">計算</th>
- 		<th class="mod_menu_op">操作</th>
- 	</tr>
 
-<!-- 数量変更メニューのプルダウン内容 -->
-<form method="post" action="itemCal">
-	<tr>
-		<td><select name="maker" id="getMaker" onchange="addOption_itemNumber()"></select></td>　　
-		<td><select name="itemNumber"id="lists"></select></td>
-		<td><select name="qty">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-			</select></td>
-		<td><select name="operation" >
-			<option value="plus">＋</option>
-			<option value="minus">－</option>
-			</select></td>
-         <td><input type="submit" value="変更する！" id="value2" onClick="alert('操作しました！');">
-	</tr>
-</form>
-</table>
-
-</div>
-
-<br></br>
 
 <div class="tc001page"> 
 
@@ -194,6 +252,11 @@
 </table>  
 
 </div>
+
+
+<footer>
+	<p>© All rights reserved by colorcounter.</p>
+</footer>
 
 
 <!-- ↓↓↓javascpipt参照先↓↓↓ -->
@@ -235,14 +298,14 @@
            e.preventDefault();
            $(this).parents('.modal-panel-back').addClass('disable');
        })
-       $('.modal-panel-back').on('click', function(){
-            $(this).addClass('disable');
-        })
+//        $('.modal-panel-back').on('click', function(){
+//             $(this).addClass('disable');
+//         })
    })
 </script>
 
 
 
-<%= new java.util.Date() %>
+<%-- <%= new java.util.Date() %> --%>
 </body>
 </html>

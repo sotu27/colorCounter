@@ -18,6 +18,7 @@ public class tool implements toolIf {
 	private String sys_add_dd;
 	private String user_password;
 	private String user_name;
+	private String rqst_message;
 	
 	public String getMaker() {
 		return maker;
@@ -162,6 +163,20 @@ public class tool implements toolIf {
 
 	public void setSys_add_dd(String sys_add_dd) {
 		this.sys_add_dd = sys_add_dd;
+	}
+
+
+	@Override
+	public String getRqst_message() {
+		// TODO 自動生成されたメソッド・スタブ
+		return rqst_message;
+	}
+
+
+	@Override
+	public void setRqst_message(String rqst_message) {
+		this.rqst_message = rqst_message;
+		
 	}
 
 

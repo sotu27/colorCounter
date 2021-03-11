@@ -112,6 +112,13 @@ public class toolsServiceImpl {
 	public List<tools> getM000() {
 		return toolsDaoImpl.getM000();
 	}
+	
+	// お問い合わせ内容T000登録
+	public void registT000_Service(String user_name, String rqst_message) {
+		String sys_add_dd = "";
+		sys_add_dd = timeForInsert.timeFotInsert();
+		toolsDaoImpl.registT000(user_name, rqst_message, sys_add_dd);
+	}
 
 	
 }
