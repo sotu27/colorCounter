@@ -90,18 +90,23 @@ public class controller {
 	public String toolMaintenance_menu_handler(@ModelAttribute("toolFormData") toolIf formBean ,Model model ) {
 		String user_name = formBean.getUser_name();
 		String password = formBean.getUser_password();
-		
-		String master_user_name = "MasterSotu27XXX";
-		String master_password = "passsotu27";
+
+		// 0321 メンテナンスメニューへの操作を不可とする処理
+//		String master_user_name = "xxxx";
+//		String master_password = "xxxx";
 		String loginMessage = "";
 		
-		if (user_name.equals(master_user_name) && password.equals(master_password)) {
-			return "tool_maintenance";
-		} else {
-			loginMessage = lm.loginMessage(user_name);	
-			model.addAttribute("loginMessage",loginMessage);
-			return "tools";
-		}
+//		if (user_name.equals(master_user_name) && password.equals(master_password)) {
+//			return "tool_maintenance";
+//		} else {
+//			loginMessage = lm.loginMessage(user_name);	
+//			model.addAttribute("loginMessage",loginMessage);
+//			return "tools";
+//		}
+		
+		loginMessage = lm.loginMessage(user_name);	
+		model.addAttribute("loginMessage",loginMessage);
+		return "tools";		
 	}
 	
 	
@@ -175,6 +180,7 @@ public class controller {
 		String user_name = formBean.getUser_name();
 		String user_password = formBean.getUser_password();
 		String signin_message = "";
+		String loginMessage = "";
 		
 		if (result.hasErrors()) {
 			List<String> errorList = new ArrayList<String>();
@@ -188,6 +194,8 @@ public class controller {
 		boolean checkM000 = toolsServiceImpl.checkM000_userName_service(user_name);
 	    if (checkM000) {
 	    	toolsServiceImpl.registM000_Service(user_name, user_password);
+			loginMessage = lm.loginMessage(user_name);	
+			model.addAttribute("loginMessage",loginMessage);
 	    	System.out.println("はじめまして！");
 			return "tools";
 		} else {
@@ -337,8 +345,11 @@ public class controller {
 		// 変数宣言
 		String user_name = formBean.getUser_name();
 		String rqst_message = formBean.getRqst_message();
+		String loginMessage = "";
 		
 		if (rqst_message.getBytes().length > 250) {
+			loginMessage = lm.loginMessage(user_name);	
+			model.addAttribute("loginMessage",loginMessage);
 			return "tools";
 		} else {
 			toolsServiceImpl.registT000_Service(user_name, rqst_message);
@@ -349,6 +360,8 @@ public class controller {
 		if(user_name == null) {
 			return "login";
 		} else {
+			loginMessage = lm.loginMessage(user_name);	
+			model.addAttribute("loginMessage",loginMessage);
 			return "tools";
 		}
 			

@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.bg {
+/* 	max-width: 1200px; */
+/* 	height: 100%; */
+/* 	line-height:100%; */
+/* 	padding:0 40px; */
+/* 	margin:0 auto; */
+	
+/* 	background-image:/img/cat.png;  画像のURLを指定       */
+    background-repeat:  no-repeat;                         /* 画像の繰り返しを指定  */              
+    background-position:right bottom;                     /* 画像の表示位置を指定  */
+    background-size:45%;                               /* 画像のサイズを指定    */
+    width:100%;                                            /* 横幅のサイズを指定    */
+    height:auto;                                          /* 縦幅のサイズを指定    */
+	
+}

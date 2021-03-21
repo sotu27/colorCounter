@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/table1.css"/>"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/bottun.css"/>"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/footer.css"/>"/>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/bg.css"/>"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 <link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">	
@@ -77,7 +78,7 @@
 
 <body>
 
-
+<body class="bg" background="<c:url value="/img/cat1205.png"/>"/>
 
 <header class="header_a">
 	<div class="container">
@@ -94,42 +95,76 @@
         				<a class="js-open-modal" href="#">ABOUT</a>
         					<div class="modal-panel-back disable">
            						<div class="modal-panel">
-	               				 	<div class="modal-panel-ttl">ABOUTの内容です。
-	               				 	</div>
-	               						こんちは！！！
-	                 					year!!
+	               				 	<div class="modal-panel-ttl">ABOUT colorcounter</div>
+	               				 	<br>
+	               				 	<p>
+	               						colorcounterではあなたの手持ちの塗料のストックを記録することができるサイトです。<br><br>
+	               						
+	               						使用方法は簡単！<br><br>
+	               						ドロップダウンから内容を選択して「登録」ボタンをクリックするだけで<br>
+	               						塗料のストック状況を一覧で確認することができますよ！<br>
+	               						　・メーカー<br>
+	               						　・塗料<br>
+	               						　・数量<br>
+	               						　・計算方法<br>
+	               						
+	               						当サイトが皆さんの模活に少しでもお役に立つことができれば幸いです！<br><br>
+	               						
+	               						ご意見、ご感想がありましたら「お問い合わせ」よりメッセージを送信してくださいね！！！<br><br>
+	               						
+	               						<br>
+	                 				</p>
+	                 				<p>管理人より</p><br><br>
+	                 					
 	                    			<div class="btn-area">
-	                        			<a class="c-btn js-close-modal" href="#">設定</a>
+	                        			<a class="js-close-modal" href="#">閉じる</a>
 	                   				</div>
 	                			</div>
            			 		</div>
         				</div>
 					</li>
 					
-			<!-- お知らせ内容を表示 -->
-					<li><form method="post" action="notice">
-						<input type="submit" class="clear-decoration" value="お知らせ"/>
-						</form>
-					</li>
 
 			<!-- 問い合わせ画面へ遷移 -->
-					<li>
-						<form method="post" action="qa_menu">
- 							<input type="submit" class="clear-decoration" value="お問い合わせ画面へ"/>
-						</form>
+					<li><div class="panel_header">
+        				<a class="js-open-modal" href="#">お問い合わせへ</a>
+        					<div class="modal-panel-back disable">
+           						<div class="modal-panel">
+	               				 	<div class="modal-panel-ttl">お問い合わせについて</div>
+	               				 	<br>
+	               				 	<p>
+	               						ご意見やご感想、ご要望事項がありましたら<br>
+	               						こちらの入力フォームから送信をお願いします(^^)<br><br>
+	               						
+	               						サイト作成のご参考にさせていただきたいと思っております！<br><br>
+	                 				</p>
+	                 				
+	                 				<form method="post" action="qa_menu">
+	                 				<textarea name="rqst_message" rows="10" cols="60">120文字以内で入力ください。</textarea><br>
+<!-- 	                 				<input class="request_input_form" type="text" name="request"  /><br> -->
+ 										<input class="reset button-arrow-inner" type="submit" value="送信する！" />
+									</form>
+									<br><br>
+	                    			<div class="btn-area">
+	                        			<a class="js-close-modal" href="#">閉じる</a>
+	                   				</div>
+	                			</div>
+           			 		</div>
+        				</div>
 					</li>
 	
 			<!-- メンテナンスメニューへ遷移 -->
 					<li>
 						<form method="post" action="maintenance_menu">
-							<input type="submit" class="clear-decoration" value="メンテナンスメニューへ"/>
+<!-- 							<input type="submit" class="clear-decoration" value="メンテナンスメニューへ"/> -->
+							<input type="text" class="clear-decoration" value="メンテナンスメニューへ"/>
 						</form>
 					</li>
 
 			<!-- ログアウトボタンの表示 -->
 					<li>
 						<form method="post" action="logout">
-							<input type="submit" class="clear-decoration" value="ログアウト"/>
+							<input type="submit" class="clear-decoration" value="ログイン画面へ"/>
 							<br>
 							<c:out value="${loginMessage}"/>
 						</form>
@@ -158,11 +193,11 @@
 	
 </div>
 
-<div>
-	<form method="get" action="login">
-		<input type="submit" value="戻る"/>
-	</form>
-</div>
+<!-- <div> -->
+<!-- 	<form method="get" action="login"> -->
+<!-- 		<input type="submit" value="戻る"/> -->
+<!-- 	</form> -->
+<!-- </div> -->
 
 
 
@@ -207,9 +242,9 @@
            e.preventDefault();
            $(this).parents('.modal-panel-back').addClass('disable');
        })
-       $('.modal-panel-back').on('click', function(){
-            $(this).addClass('disable');
-        })
+//        $('.modal-panel-back').on('click', function(){
+//             $(this).addClass('disable');
+//         })
    })
 </script>
 

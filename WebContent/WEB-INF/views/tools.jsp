@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/table1.css"/>"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/bottun.css"/>"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/footer.css"/>"/>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/bg.css"/>"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 <link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">	
@@ -81,6 +82,9 @@
 </head>
 
 <body>
+<!-- 	<div class="bg"> -->
+				<body class="bg" background="<c:url value="/img/cat1205.png"/>"/>
+<!-- 	 </div> -->
 
 <header class="header_a">
 	<div class="container">
@@ -102,21 +106,17 @@
 	               				 	<p>
 	               						colorcounterではあなたの手持ちの塗料のストックを記録することができるサイトです。<br><br>
 	               						
-	               						模型店に立ち寄った際に、こんな経験をしたことはありませんか？<br>
-	               						「あれ、、、この塗料って家にまだ残っていたかな？？」<br>
-	               						「つや消しクリアーと光沢クリアーの手持ちの数って・・・何個だったっけ((+_+)))」<br>
-	               						「ニュートラルグレーのⅡが足りないと思っていたけど、実際に家にないのはⅢだった」<br>
-	               						などなど・・・<br><br>
-	               						
-	               						そんな時！！colorcounterで記録をしておくと便利ですよ！！<br><br>
-	               						
-	               						現在はラッカー塗料のみしか対応していませんが、<br>
-	               						水性やアクリル塗料も含め対応いていきたいと思っています。<br>
-	               						（管理人はラッカー塗料のヘビーユーザなのです・・・）<br><br>
+	               						使用方法は簡単！<br><br>
+	               						ドロップダウンから内容を選択して「登録」ボタンをクリックするだけで<br>
+	               						塗料のストック状況を一覧で確認することができますよ！<br>
+	               						　・メーカー<br>
+	               						　・塗料<br>
+	               						　・数量<br>
+	               						　・計算方法<br>
 	               						
 	               						当サイトが皆さんの模活に少しでもお役に立つことができれば幸いです！<br><br>
 	               						
-	               						それでは、本日も楽しい模活を！！！<br><br>
+	               						ご意見、ご感想がありましたら「お問い合わせ」よりメッセージを送信してくださいね！！！<br><br>
 	               						
 	               						<br>
 	                 				</p>
@@ -161,7 +161,8 @@
 			<!-- メンテナンスメニューへ遷移 -->
 					<li>
 						<form method="post" action="maintenance_menu">
-							<input type="submit" class="clear-decoration" value="メンテナンスメニューへ"/>
+<!-- 						<input type="submit" class="clear-decoration" value="メンテナンスメニューへ"/> -->
+							<input type="text" class="clear-decoration" value="メンテナンスメニューへ"/>
 						</form>
 					</li>
 
