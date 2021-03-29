@@ -93,12 +93,15 @@ public class toolsDaoImpl {
 	
 	
 	// 計算のもととなる数量を取得するメソッド
-	public int getQty(String itemNumber) {
+	public int getQty(String itemNumber, String userName) {
 		String sql = "SELECT itemQty FROM TC001 WHERE itemNumber = " +
-	                       " \"" +
+	                       " '" +
 	                      itemNumber +
-	                       "\"" +
-	                       " ; " ;
+		                  "'" +
+		                  " AND "+
+		                  " user_name = '"+
+		                  userName +
+		                  "'; " ;
 		RowMapper<tools> rowMapper = new BeanPropertyRowMapper<tools>(tools.class);
 		List<tools> toolsList = jdbcTemplate.query(sql, rowMapper);
 		int baseQty;

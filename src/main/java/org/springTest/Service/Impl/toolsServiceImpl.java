@@ -67,7 +67,7 @@ public class toolsServiceImpl {
 		if (checkResultTC001) {
 			// TC001にレコードが存在する場合⇒UPDATE処理		
 			//現在の数量を取得する
-			baseQty = toolsDaoImpl.getQty(itemNumber);
+			baseQty = toolsDaoImpl.getQty(itemNumber,userName);
 			//条件によって計算メソッドを呼び出す
 			if (operation.equals("plus")) {
 				int resultQty;  //計算結果用変数
