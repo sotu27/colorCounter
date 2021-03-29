@@ -5,7 +5,7 @@ async function getTC001List(){
 	
 	//データを取得
 	//const res = await fetch('http://localhost:8080/test_Project/getItemList');
-	const res = await fetch('https:/c-counter.com/testProject/getItemList');
+	const res = await fetch('https://c-counter.com/testProject/getItemList');
 	const fff = await res.json();
 	const dtSetting={
 		       destroy: true,

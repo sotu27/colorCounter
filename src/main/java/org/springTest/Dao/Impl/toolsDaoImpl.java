@@ -49,7 +49,7 @@ public class toolsDaoImpl {
 	
 	
 	// 数量の足し算を行うメソッド
-	public void itemCal_plus(String maker,String itemNumber, int resultQty) {
+	public void itemCal_plus(String maker,String itemNumber, int resultQty,String userName) {
 		// SQL文作成
 		String sqlTest = "UPDATE TC001 SET itemQty = '" +
 		                          resultQty +
@@ -60,6 +60,10 @@ public class toolsDaoImpl {
 		                          " AND "+
 		                          " maker = '"+
 		                          maker +
+		                          "'" +
+		                          " AND "+
+		                          " user_name = '"+
+		                          userName +
 		                          "'; " ;
 		//SQL実行
 		jdbcTemplate.update(sqlTest);
@@ -67,7 +71,7 @@ public class toolsDaoImpl {
 	
 	
 	// 数量の引き算を行うメソッド
-	public void itemCal_minus(String maker,String itemNumber, int resultQty) {
+	public void itemCal_minus(String maker,String itemNumber, int resultQty,String userName) {
 		// SQL文作成
 		String sqlTest = "UPDATE TC001 SET itemQty = '" +
 		                          resultQty +
@@ -78,6 +82,10 @@ public class toolsDaoImpl {
 		                          " AND "+
 		                          " maker = '"+
 		                          maker +
+		                          "'" +
+		                          " AND "+
+		                          " user_name = '"+
+		                          userName +
 		                          "'; " ;
 		//SQL実行
 		jdbcTemplate.update(sqlTest);

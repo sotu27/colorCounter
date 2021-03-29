@@ -72,11 +72,11 @@ public class toolsServiceImpl {
 			if (operation.equals("plus")) {
 				int resultQty;  //計算結果用変数
 				resultQty = baseQty + qty;
-				toolsDaoImpl.itemCal_plus(maker,itemNumber,resultQty);
+				toolsDaoImpl.itemCal_plus(maker,itemNumber,resultQty,userName);
 			} else if (operation.equals("minus")) {
 				int resultQty;  //計算結果用変数
 				resultQty = baseQty - qty;
-				toolsDaoImpl.itemCal_minus(maker,itemNumber,resultQty);
+				toolsDaoImpl.itemCal_minus(maker,itemNumber,resultQty,userName);
 			}
 		}else {
 			// TC001にレコードが存在しない場合⇒INSERT処理
