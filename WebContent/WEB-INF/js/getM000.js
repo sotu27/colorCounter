@@ -6,7 +6,8 @@ const makerList = document.getElementById("getMaker");
 async function addOption_maker(){
 	
 	//データを取得
-	const res = await fetch('http://localhost:8080/test_Project/getMaker');
+	//const res = await fetch('http://localhost:8080/test_Project/getMaker');
+	const res = await fetch('https://c-counter.com/testProject/getMaker');
 	const M002 = await res.json();
 	
 	// デフォルト値

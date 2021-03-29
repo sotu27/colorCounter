@@ -7,7 +7,8 @@ async function addOption_itemNumber(){
 	var selectMaker = document.getElementById("getMaker").value;
 	
 	//データを取得
-	const res = await fetch('http://localhost:8080/test_Project/test');
+	//const res = await fetch('http://localhost:8080/test_Project/test');
+	const res = await fetch('https://c-counter.com/testProject/test');
 	const fff = await res.json();
 	
 	// 品番のoptionタブに既にデータがある場合、optionタブ要素を削除する。
